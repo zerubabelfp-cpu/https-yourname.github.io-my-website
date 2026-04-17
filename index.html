@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zerubabel | Future Ethical Hacker</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #000;
+  color: #0f0;
+}
+header {
+  text-align: center;
+  padding: 30px;
+}
+nav {
+  text-align: center;
+  padding: 10px;
+  background: #111;
+}
+nav a {
+  color: #0f0;
+  margin: 10px;
+  text-decoration: none;
+}
+section {
+  padding: 20px;
+}
+.card {
+  background: #111;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 10px;
+}
+.progress {
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+.progress-bar {
+  height: 20px;
+  background: #0f0;
+  width: 0;
+}
+button {
+  background: #0f0;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+input {
+  padding: 5px;
+}
+#game {
+  font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1 id="typing"></h1>
+  <p>Future International Ethical Hacker 💻</p>
+</header>
+
+<nav>
+  <a href="#skills">Skills</a>
+  <a href="#tracker">Learning</a>
+  <a href="#game">Game</a>
+</nav>
+
+<section>
+<div class="card">
+<h2>About Me</h2>
+<p>I love sports, games and technology. I want to learn new things and become a professional ethical hacker.</p>
+</div>
+</section>
+
+<section id="skills">
+<div class="card">
+<h2>Skills Progress</h2>
+<p>HTML</p>
+<div class="progress"><div class="progress-bar" style="width:60%"></div></div>
+<p>Cybersecurity</p>
+<div class="progress"><div class="progress-bar" style="width:30%"></div></div>
+<p>Technology</p>
+<div class="progress"><div class="progress-bar" style="width:50%"></div></div>
+</div>
+</section>
+
+<section id="tracker">
+<div class="card">
+<h2>Daily Learning Tracker</h2>
+<input id="task" placeholder="What did you learn?">
+<button onclick="addTask()">Add</button>
+<ul id="list"></ul>
+</div>
+</section>
+
+<section id="game">
+<div class="card">
+<h2>Mini Game 🎮</h2>
+<p>Guess number (1-10)</p>
+<input id="guess">
+<button onclick="checkGame()">Try</button>
+<p id="result"></p>
+</div>
+</section>
+
+<script>
+// Typing effect
+const text = "ZERUBABEL FIKREMARIAM";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(type, 100);
+  }
+}
+type();
+
+// Tracker
+function addTask() {
+  let task = document.getElementById("task").value;
+  let li = document.createElement("li");
+  li.textContent = task;
+  document.getElementById("list").appendChild(li);
+  localStorage.setItem("tasks", document.getElementById("list").innerHTML);
+}
+document.getElementById("list").innerHTML = localStorage.getItem("tasks") || "";
+
+// Game
+let number = Math.floor(Math.random()*10)+1;
+function checkGame() {
+  let guess = document.getElementById("guess").value;
+  if (guess == number) {
+    document.getElementById("result").innerText = "Correct!";
+  } else {
+    document.getElementById("result").innerText = "Try again!";
+  }
+}
+</script>
+
+<footer style="text-align:center;padding:10px;background:#111">
+<p>© 2026 Zerubabel | Public Website 🌍</p>
+</footer>
+
+</body>
+</html>
